@@ -1,7 +1,7 @@
 {
   "name": "vscode-react-nextjs-generator",
   "displayName": "vscode-react-nextjs-generator",
-  "description": "",
+  "description": "Easily create React components with Next.js structure",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.93.0"
@@ -14,10 +14,116 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-react-nextjs-generator.helloWorld",
-        "title": "Hello World"
+        "command": "extension.createReactComponent",
+        "title": "Create React Component"
+      },
+      {
+        "command": "extension.createNextJsPage",
+        "title": "Create Next.js Page"
+      },
+      {
+        "command": "extension.createNextJsLayout",
+        "title": "Create Next.js Layout"
+      },
+      {
+        "command": "extension.createNextJsError",
+        "title": "Create Next.js Error"
+      },
+      {
+        "command": "extension.createNextJsLoading",
+        "title": "Create Next.js Loading"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "react.createReactNext",
+          "when": "explorerResourceIsFolder",
+          "group": "React@1"
+        }
+      ],
+      "react.createReactNext": [
+        {
+          "command": "extension.createReactComponent",
+          "when": "explorerResourceIsFolder",
+          "group": "React@1"
+        },
+        {
+          "command": "extension.createNextJsPage",
+          "when": "explorerResourceIsFolder",
+          "group": "React@2"
+        },
+        {
+          "command": "extension.createNextJsLayout",
+          "when": "explorerResourceIsFolder",
+          "group": "React@3"
+        },
+        {
+          "command": "extension.createNextJsError",
+          "when": "explorerResourceIsFolder",
+          "group": "React@4"
+        },
+        {
+          "command": "extension.createNextJsLoading",
+          "when": "explorerResourceIsFolder",
+          "group": "React@5"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "react.createReactNext",
+        "label": "React/Next Generator"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "React/Next.js Generator",
+      "properties": {
+        "reactNextjsGenerator.templates.page": {
+          "type": "string",
+          "default": "import React from 'react';\n\nexport default async function Page({\n    params,\n    searchParams,\n}: {\n    params: { slug: string | string[] };\n    searchParams: { [key: string]: string | string[] | undefined };\n}) {\n    return (\n        <div>\n        <h1>Page</h1>\n        </div>\n  );\n};\n\nexport async function generateMetadata({\n    params,\n    searchParams,\n}: {\n    params: { slug: string | string[] };\n    searchParams: { [key: string]: string | string[] | undefined };\n}): Promise<Metadata | undefined> {\n    return {};\n}\n",
+          "description": "Template for Next.js page component",
+          "editPresentation": "multilineText"
+        },
+        "reactNextjsGenerator.templates.layout": {
+          "type": "string",
+          "default": "import React from 'react';\n\nexport default async function RootLayout({\n    children,\n}: {\n    children: React.ReactNode;\n}) {\n    return (\n        <div>\n        <header>Header</header>\n        <main>{children}</main>\n        <footer>Footer</footer>\n        </div>\n    );\n};\n",
+          "description": "Template for Next.js layout component",
+          "editPresentation": "multilineText"
+        },
+        "reactNextjsGenerator.templates.error": {
+          "type": "string",
+          "default": "import React from 'react';\n\nexport default function Error() {\n  return (\n    <div>\n      <h1>Error: Something went wrong</h1>\n    </div>\n  );\n};\n",
+          "description": "Template for Next.js error component",
+          "editPresentation": "multilineText"
+        },
+        "reactNextjsGenerator.templates.loading": {
+          "type": "string",
+          "default": "import React from 'react';\n\nexport default function Loading() {\n  return (\n    <div>\n      <h1>Loading...</h1>\n    </div>\n  );\n};\n",
+          "description": "Template for Next.js loading component",
+          "editPresentation": "multilineText"
+        },
+        "reactNextjsGenerator.templates.reactComponent": {
+          "type": "string",
+          "default": "import React from 'react';\nimport styles from './{fileName}.module.css';\n\nexport type {fileName}Props = {{}};\n\nexport const {fileName}: React.FC<{fileName}Props> = () => {{\n  return (\n    <div className={styles.container}>\n      {fileName} Component\n    </div>\n  );\n}};\n",
+          "description": "Template for React component",
+          "editPresentation": "multilineText"
+        },
+        "reactNextjsGenerator.templates.reactComponentCss": {
+          "type": "string",
+          "default": ".container {\n  /* Add your styles here */\n}\n",
+          "description": "Template for React component CSS module",
+          "editPresentation": "multilineText"
+        },
+        "reactNextjsGenerator.templates.reactComponentTest": {
+          "type": "string",
+          "default": "import React from 'react';\nimport { render } from '@testing-library/react';\nimport {fileName} from '../{fileName}';\n\ntest('renders {fileName} component', () => {{\n  render(<{fileName} />);\n}});\n",
+          "description": "Template for React component test",
+          "editPresentation": "multilineText"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

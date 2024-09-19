@@ -1,26 +1,54 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import { CreateReactComponent, CreateNextJSFile } from "./commands";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  const createReactComponent = vscode.commands.registerCommand(
+    "extension.createReactComponent",
+    async (uri: vscode.Uri) => {
+      if (!uri) {
+        vscode.window.showErrorMessage("No file selected");
+        return;
+      } else {
+        await CreateReactComponent.create(uri);
+      }
+    },
+  );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-react-nextjs-generator" is now active!');
+  const createNextJsPage = vscode.commands.registerCommand(
+    "extension.createNextJsPage",
+    async (uri: vscode.Uri) => {
+      await CreateNextJSFile.create(uri, "page");
+    },
+  );
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('vscode-react-nextjs-generator.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from vscode-react-nextjs-generator!');
-	});
+  const createNextJsLayout = vscode.commands.registerCommand(
+    "extension.createNextJsLayout",
+    async (uri: vscode.Uri) => {
+      await CreateNextJSFile.create(uri, "layout");
+    },
+  );
 
-	context.subscriptions.push(disposable);
+  const createNextJsError = vscode.commands.registerCommand(
+    "extension.createNextJsError",
+    async (uri: vscode.Uri) => {
+      await CreateNextJSFile.create(uri, "error");
+    },
+  );
+
+  const createNextJsLoading = vscode.commands.registerCommand(
+    "extension.createNextJsLoading",
+    async (uri: vscode.Uri) => {
+      await CreateNextJSFile.create(uri, "loading");
+    },
+  );
+
+  context.subscriptions.push(
+    createReactComponent,
+    createNextJsPage,
+    createNextJsLayout,
+    createNextJsError,
+    createNextJsLoading,
+  );
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}
