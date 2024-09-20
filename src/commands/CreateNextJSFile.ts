@@ -1,23 +1,25 @@
 import * as vscode from "vscode";
-import * as fs from "fs";
 import * as path from "path";
+import {
+  createDirectoryIfNotExists,
+  getConfiguration,
+  writeFile,
+  showInformationMessage,
+  showErrorMessage,
+} from "../helpers";
 
 export class CreateNextJSFile {
   public static async create(uri: vscode.Uri, type: string): Promise<void> {
     if (!uri) {
-      vscode.window.showErrorMessage("No file selected");
+      showErrorMessage("No file selected");
       return;
     }
 
     const dirPath = uri.fsPath;
 
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
+    createDirectoryIfNotExists(dirPath);
 
-    const config = vscode.workspace.getConfiguration(
-      "reactNextjsGenerator.templates",
-    );
+    const config = getConfiguration("reactNextjsGenerator.templates");
     let fileName = "";
     let fileContent = "";
 
@@ -41,12 +43,12 @@ export class CreateNextJSFile {
     }
 
     if (!fileContent) {
-      vscode.window.showErrorMessage(`Template for type "${type}" not found`);
+      showErrorMessage(`Template for type "${type}" not found`);
       return;
     }
 
-    fs.writeFileSync(path.join(dirPath, fileName), fileContent);
-    vscode.window.showInformationMessage(
+    writeFile(path.join(dirPath, fileName), fileContent);
+    showInformationMessage(
       `${
         type.charAt(0).toUpperCase() + type.slice(1)
       } file ${fileName} created successfully!`,

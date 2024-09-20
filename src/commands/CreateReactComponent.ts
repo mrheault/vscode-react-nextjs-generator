@@ -1,12 +1,18 @@
 import * as vscode from "vscode";
-import * as fs from "fs";
 import * as path from "path";
+import {
+  createDirectoryIfNotExists,
+  getConfiguration,
+  writeFile,
+  showInformationMessage,
+  showErrorMessage,
+} from "../helpers";
 
 export class CreateReactComponent {
   public static async create(uri: vscode.Uri): Promise<void> {
     const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
     if (!workspaceFolder) {
-      vscode.window.showErrorMessage("No workspace folder found");
+      showErrorMessage("No workspace folder found");
       return;
     }
 
@@ -32,7 +38,7 @@ export class CreateReactComponent {
     });
 
     if (!input) {
-      vscode.window.showErrorMessage("No input provided");
+      showErrorMessage("No input provided");
       return;
     }
 
@@ -42,13 +48,9 @@ export class CreateReactComponent {
     const dirPath = path.join(workspaceRoot, path.dirname(sanitizedInput));
     const fileName = path.basename(sanitizedInput);
 
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
+    createDirectoryIfNotExists(dirPath);
 
-    const config = vscode.workspace.getConfiguration(
-      "reactNextjsGenerator.templates",
-    );
+    const config = getConfiguration("reactNextjsGenerator.templates");
 
     const componentTemplate = config.get<string>("reactComponent", "");
     const cssModuleTemplate = config.get<string>("reactComponentCss", "");
@@ -58,24 +60,14 @@ export class CreateReactComponent {
     const cssModuleContent = cssModuleTemplate.replace(/{fileName}/g, fileName);
     const testContent = testTemplate.replace(/{fileName}/g, fileName);
 
-    fs.writeFileSync(path.join(dirPath, `${fileName}.tsx`), componentContent);
-    fs.writeFileSync(
-      path.join(dirPath, `${fileName}.module.css`),
-      cssModuleContent,
-    );
+    writeFile(path.join(dirPath, `${fileName}.tsx`), componentContent);
+    writeFile(path.join(dirPath, `${fileName}.module.css`), cssModuleContent);
 
     const testDirPath = path.join(dirPath, "__tests__");
-    if (!fs.existsSync(testDirPath)) {
-      fs.mkdirSync(testDirPath);
-    }
+    createDirectoryIfNotExists(testDirPath);
 
-    fs.writeFileSync(
-      path.join(testDirPath, `${fileName}.spec.tsx`),
-      testContent,
-    );
+    writeFile(path.join(testDirPath, `${fileName}.spec.tsx`), testContent);
 
-    vscode.window.showInformationMessage(
-      `React component ${fileName} created successfully!`,
-    );
+    showInformationMessage(`React component ${fileName} created successfully!`);
   }
 }
