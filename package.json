@@ -14,6 +14,10 @@
   "contributes": {
     "commands": [
       {
+        "command": "extension.createClass",
+        "title": "Create Class or Interface"
+      },
+      {
         "command": "extension.createReactComponent",
         "title": "Create React Component"
       },
@@ -43,6 +47,11 @@
         }
       ],
       "react.createReactNext": [
+        {
+          "command": "extension.createClass",
+          "when": "explorerResourceIsFolder",
+          "group": "React@0"
+        },
         {
           "command": "extension.createReactComponent",
           "when": "explorerResourceIsFolder",

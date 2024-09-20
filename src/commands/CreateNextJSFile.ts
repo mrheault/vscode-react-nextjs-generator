@@ -6,6 +6,8 @@ import {
   writeFile,
   showInformationMessage,
   showErrorMessage,
+  promptClassName,
+  promptExportType,
 } from "../helpers";
 
 export class CreateNextJSFile {
@@ -53,5 +55,33 @@ export class CreateNextJSFile {
         type.charAt(0).toUpperCase() + type.slice(1)
       } file ${fileName} created successfully!`,
     );
+  }
+
+  public static async createClass(uri: vscode.Uri): Promise<void> {
+    if (!uri) {
+      showErrorMessage("No file selected");
+      return;
+    }
+
+    const exportType = await promptExportType();
+    if (!exportType) {
+      showErrorMessage("No export type provided");
+      return;
+    }
+
+    const className = await promptClassName();
+    if (!className) {
+      showErrorMessage("No class name provided");
+      return;
+    }
+
+    const dirPath = uri.fsPath;
+    createDirectoryIfNotExists(dirPath);
+
+    const fileName = `${className}.tsx`;
+    const fileContent = `export ${exportType} ${className} {\n  // Add your ${exportType} properties and/or methods here\n}\n`;
+
+    writeFile(path.join(dirPath, fileName), fileContent);
+    showInformationMessage(`${className} ${exportType} created successfully!`);
   }
 }

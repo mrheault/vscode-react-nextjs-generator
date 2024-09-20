@@ -41,8 +41,15 @@ export function activate(context: vscode.ExtensionContext) {
       await CreateNextJSFile.create(uri, "loading");
     },
   );
+  const createClass = vscode.commands.registerCommand(
+    "extension.createClass",
+    async (uri: vscode.Uri) => {
+      await CreateNextJSFile.createClass(uri);
+    },
+  );
 
   context.subscriptions.push(
+    createClass,
     createReactComponent,
     createNextJsPage,
     createNextJsLayout,
