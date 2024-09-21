@@ -13,6 +13,9 @@ A VSCode extension to effortlessly generate React and Next.js files with customi
 - Customizable templates
 - Integration with VSCode commands
 
+![Context menu](https://github.com/mrheault/vscode-react-nextjs-generator/main/images/explorer-context-menu.jpg)
+_Explorer Context Menu_
+
 ## 🛠️ Installation
 
 There are several ways to install.
@@ -54,7 +57,7 @@ export default async function Page({params,searchParams,}: {
 params: { slug: string | string[] };
 searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  return (  
+  return (
     <div>
     <h1>Page</h1>
     </div>
@@ -89,7 +92,7 @@ children,
 }: {
 children: React.ReactNode;
 }) {
-  return (  
+  return (
     <div>
     <header>Header</header>
     <main>{children}</main>
@@ -98,6 +101,7 @@ children: React.ReactNode;
   );
 };
 ```
+
 </td>
 </tr>
 <tr>
@@ -138,6 +142,7 @@ export default function Loading() {
 };
 
 ```
+
 </td>
 </tr>
 <tr>
