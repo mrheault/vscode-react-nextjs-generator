@@ -43,7 +43,9 @@ export class CreateReactComponent {
     }
 
     // Replace backslashes with forward slashes
-    const sanitizedInput = input.replace(/\\/g, "/");
+    const sanitizedInput = input
+      .replace(/[^a-zA-Z0-9/_-]/g, "")
+      .replace(/\\/g, "/");
 
     const dirPath = path.join(workspaceRoot, path.dirname(sanitizedInput));
     const fileName = path.basename(sanitizedInput);
