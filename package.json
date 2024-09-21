@@ -1,7 +1,17 @@
 {
   "name": "vscode-react-nextjs-generator",
-  "displayName": "vscode-react-nextjs-generator",
+  "displayName": "VSCode React Nextjs File Generator",
   "description": "Easily create React components with Next.js structure and Next.js pages",
+  "author": "Mike Rheault",
+  "publisher": "mikerheault",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrheault/vscode-react-nextjs-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/mrheault/vscode-react-nextjs-generator/issues"
+  },
+  "homepage": "https://github.com/mrheault/vscode-react-nextjs-generator",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.93.0"
@@ -15,7 +25,6 @@
     "react",
     "next.js",
     "generator",
-    "create",
     "component",
     "page",
     "layout",
@@ -27,11 +36,29 @@
     "template",
     "codegen",
     "scaffold",
-    "scaffolding"
+    "snippets"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "snippets": [
+      {
+        "language": "typescriptreact",
+        "path": "./src/snippets/ts-react.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./src/snippets/ts-next.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./src/snippets/js-react.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./src/snippets/js-next.json"
+      }
+    ],
     "commands": [
       {
         "command": "extension.createClass",

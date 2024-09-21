@@ -1,0 +1,100 @@
+{
+  "Next page file": {
+    "prefix": "nxpg",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function Page() {",
+      "   return (",
+      "       <div>",
+      "           <h1>${TM_FILENAME_BASE}</h1>",
+      "       </div>",
+      "   );",
+      "}"
+    ],
+    "description": "Create a NextJS page file"
+  },
+  "Next layout file": {
+    "prefix": "nxlayout",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function RootLayout({ children }) {",
+      "   return (",
+      "       <div>",
+      "           <header>Header</header>",
+      "           <main>{children}</main>",
+      "           <footer>Footer</footer>",
+      "       </div>",
+      "   );",
+      "}"
+    ],
+    "description": "Create a NextJS layout file"
+  },
+  "Next error file": {
+    "prefix": "nxerror",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function Error() {",
+      "   return (",
+      "       <div>",
+      "           <h1>Error: Something went wrong</h1>",
+      "       </div>",
+      "   );",
+      "}"
+    ],
+    "description": "Create a NextJS error file"
+  },
+  "Next loading file": {
+    "prefix": "nxloading",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function Loading() {",
+      "   return (",
+      "       <div>",
+      "           <h1>Loading...</h1>",
+      "       </div>",
+      "   );",
+      "}"
+    ],
+    "description": "Create a NextJS loading file"
+  },
+  "React component file": {
+    "prefix": "nxcomponent",
+    "body": [
+      "import React from 'react';",
+      "import styles from './${TM_FILENAME_BASE}.module.css';",
+      "",
+      "export type ${TM_FILENAME_BASE}Props = {};",
+      "",
+      "export const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "   return (",
+      "       <div className={styles.container}>",
+      "           ${TM_FILENAME_BASE} Component",
+      "       </div>",
+      "   );",
+      "};"
+    ],
+    "description": "Create a React component file"
+  },
+  "React component CSS module": {
+    "prefix": "nxcomponentcss",
+    "body": [".container {", "   /* Add your styles here */", "}"],
+    "description": "Create a React component CSS module"
+  },
+  "React component test file": {
+    "prefix": "tsnxtest",
+    "body": [
+      "import React from 'react';",
+      "import { render } from '@testing-library/react';",
+      "import ${TM_FILENAME_BASE} from '../${TM_FILENAME_BASE}';",
+      "",
+      "test('renders ${TM_FILENAME_BASE} component', () => {",
+      "   render(<${TM_FILENAME_BASE} />);",
+      "});"
+    ],
+    "description": "Create a React component test file"
+  }
+}

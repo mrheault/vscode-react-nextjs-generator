@@ -1,0 +1,99 @@
+{
+  "rimr": {
+    "prefix": "rimr",
+    "body": ["import React from 'react';"],
+    "description": "TypeScript: import react"
+  },
+  "rfc": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {}",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE} Component",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "TypeScript: React functional component"
+  },
+  "rfce": {
+    "prefix": "rfce",
+    "body": [
+      "import React, { useEffect } from 'react';",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {}",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "  useEffect(() => {",
+      "    // Effect logic here",
+      "  }, []);",
+      "",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE} Component",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "TypeScript: React functional component with useEffect"
+  },
+  "rsc": {
+    "prefix": "rsc",
+    "body": [
+      "import React, { useState } from 'react';",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {}",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "  const [state, setState] = useState(null);",
+      "",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE} Component",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "TypeScript: React functional component with useState"
+  },
+  "rctx": {
+    "prefix": "rctx",
+    "body": [
+      "import React, { createContext, useContext, useState } from 'react';",
+      "",
+      "interface ${TM_FILENAME_BASE}ContextProps {}",
+      "",
+      "const ${TM_FILENAME_BASE}Context = createContext<${TM_FILENAME_BASE}ContextProps | undefined>(undefined);",
+      "",
+      "export const ${TM_FILENAME_BASE}Provider: React.FC = ({ children }) => {",
+      "  const [state, setState] = useState(null);",
+      "",
+      "  return (",
+      "    <${TM_FILENAME_BASE}Context.Provider value={{ state, setState }}>",
+      "      {children}",
+      "    </${TM_FILENAME_BASE}Context.Provider>",
+      "  );",
+      "};",
+      "",
+      "export const use${TM_FILENAME_BASE} = () => {",
+      "  const context = useContext(${TM_FILENAME_BASE}Context);",
+      "  if (context === undefined) {",
+      "    throw new Error('use${TM_FILENAME_BASE} must be used within a ${TM_FILENAME_BASE}Provider');",
+      "  }",
+      "  return context;",
+      "};"
+    ],
+    "description": "TypeScript: React context with provider and hook"
+  }
+}
