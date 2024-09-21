@@ -1,13 +1,33 @@
 {
   "name": "vscode-react-nextjs-generator",
   "displayName": "vscode-react-nextjs-generator",
-  "description": "Easily create React components with Next.js structure",
+  "description": "Easily create React components with Next.js structure and Next.js pages",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.93.0"
   },
   "categories": [
+    "Programming Languages",
+    "Snippets",
     "Other"
+  ],
+  "keywords": [
+    "react",
+    "next.js",
+    "generator",
+    "create",
+    "component",
+    "page",
+    "layout",
+    "error",
+    "loading",
+    "typescript",
+    "vscode",
+    "extension",
+    "template",
+    "codegen",
+    "scaffold",
+    "scaffolding"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
