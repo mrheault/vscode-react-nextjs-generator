@@ -44,11 +44,14 @@ There are several ways to install.
 
 ## ▶️ Demo
 
-![]()
-_Placeholder_
+![Create React Component](https://raw.githubusercontent.com/mrheault/vscode-react-nextjs-generator/refs/heads/main/images/react-component.gif)
+_Create React Component_
 
-![]()
-_Placeholder_
+![Create Next Layout File](https://raw.githubusercontent.com/mrheault/vscode-react-nextjs-generator/refs/heads/main/images/layout-file.gif)
+_Create Next Layout File_
+
+![Snippet](https://raw.githubusercontent.com/mrheault/vscode-react-nextjs-generator/refs/heads/main/images/snippet.gif)
+_Example Snippet_
 
 ## ⚙️ Configuration/Settings
 
