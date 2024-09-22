@@ -1,6 +1,6 @@
 {
   "name": "vscode-react-nextjs-generator",
-  "displayName": "VSCode React Nextjs File Generator",
+  "displayName": "Just Another VSCode React Nextjs File Generator",
   "description": "Easily create React components with Next.js structure and Next.js pages",
   "author": "Mike Rheault",
   "publisher": "mikerheault",
@@ -179,7 +179,7 @@
         },
         "reactNextjsGenerator.templates.reactComponent": {
           "type": "string",
-          "default": "import React from 'react';\nimport styles from './{fileName}.module.css';\n\nexport type {fileName}Props = {{}};\n\nexport const {fileName}: React.FC<{fileName}Props> = () => {{\n  return (\n    <div className={styles.container}>\n      {fileName} Component\n    </div>\n  );\n}};\n",
+          "default": "import React from 'react';\nimport styles from './{fileName}.module.css';\n\nexport type {fileName}Props = {};\n\nexport const {fileName}: React.FC<{fileName}Props> = () => {\n  return (\n    <div className={styles.container}>\n      {fileName} Component\n    </div>\n  );\n};\n",
           "description": "Template for React component",
           "editPresentation": "multilineText"
         },
@@ -191,7 +191,7 @@
         },
         "reactNextjsGenerator.templates.reactComponentTest": {
           "type": "string",
-          "default": "import React from 'react';\nimport { render } from '@testing-library/react';\nimport {fileName} from '../{fileName}';\n\ntest('renders {fileName} component', () => {{\n  render(<{fileName} />);\n}});\n",
+          "default": "import React from 'react';\nimport { render } from '@testing-library/react';\nimport {fileName} from '../{fileName}';\n\ntest('renders {fileName} component', () => {\n  render(<{fileName} />);\n});\n",
           "description": "Template for React component test",
           "editPresentation": "multilineText"
         }
