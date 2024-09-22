@@ -13,7 +13,7 @@
     "url": "https://github.com/mrheault/vscode-react-nextjs-generator/issues"
   },
   "homepage": "https://github.com/mrheault/vscode-react-nextjs-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.93.0"
   },
