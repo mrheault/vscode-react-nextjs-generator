@@ -1,4 +1,4 @@
-# VSCode React NextJS File Generator ![Version](https://img.shields.io/visual-studio-marketplace/v/mikerheault.vscode-react-nextjs-generator)
+# Just Another VSCode React NextJS File Generator ![Version](https://img.shields.io/visual-studio-marketplace/v/mikerheault.vscode-react-nextjs-generator)
 
 A VSCode extension to effortlessly generate React and Next.js files with customizable templates.
 

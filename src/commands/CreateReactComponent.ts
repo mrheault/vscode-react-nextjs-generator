@@ -61,8 +61,9 @@ export class CreateReactComponent {
     const componentContent = componentTemplate.replace(/{fileName}/g, fileName);
     const cssModuleContent = cssModuleTemplate.replace(/{fileName}/g, fileName);
     const testContent = testTemplate.replace(/{fileName}/g, fileName);
+    const filePath = path.join(dirPath, `${fileName}.tsx`);
 
-    writeFile(path.join(dirPath, `${fileName}.tsx`), componentContent);
+    writeFile(filePath, componentContent);
     writeFile(path.join(dirPath, `${fileName}.module.css`), cssModuleContent);
 
     const testDirPath = path.join(dirPath, "__tests__");
@@ -71,5 +72,7 @@ export class CreateReactComponent {
     writeFile(path.join(testDirPath, `${fileName}.spec.tsx`), testContent);
 
     showInformationMessage(`React component ${fileName} created successfully!`);
+    const document = await vscode.workspace.openTextDocument(filePath);
+    await vscode.window.showTextDocument(document);
   }
 }

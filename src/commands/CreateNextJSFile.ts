@@ -48,13 +48,17 @@ export class CreateNextJSFile {
       showErrorMessage(`Template for type "${type}" not found`);
       return;
     }
+    const filePath = path.join(dirPath, fileName);
 
-    writeFile(path.join(dirPath, fileName), fileContent);
+    writeFile(filePath, fileContent);
     showInformationMessage(
       `${
         type.charAt(0).toUpperCase() + type.slice(1)
       } file ${fileName} created successfully!`,
     );
+
+    const document = await vscode.workspace.openTextDocument(filePath);
+    await vscode.window.showTextDocument(document);
   }
 
   public static async createClass(uri: vscode.Uri): Promise<void> {
@@ -80,8 +84,11 @@ export class CreateNextJSFile {
 
     const fileName = `${className}.tsx`;
     const fileContent = `export ${exportType} ${className} {\n  // Add your ${exportType} properties and/or methods here\n}\n`;
+    const filePath = path.join(dirPath, fileName);
 
-    writeFile(path.join(dirPath, fileName), fileContent);
+    writeFile(filePath, fileContent);
     showInformationMessage(`${className} ${exportType} created successfully!`);
+    const document = await vscode.workspace.openTextDocument(filePath);
+    await vscode.window.showTextDocument(document);
   }
 }
