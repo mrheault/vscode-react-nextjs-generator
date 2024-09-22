@@ -1,7 +1,7 @@
 {
   "name": "vscode-react-nextjs-generator",
   "displayName": "Just Another VSCode React Nextjs File Generator",
-  "description": "Easily create React components with Next.js structure and Next.js pages",
+  "description": "A VSCode extension to effortlessly generate React and Next.js files with customizable templates and snippets.",
   "author": "Mike Rheault",
   "publisher": "mikerheault",
   "icon": "images/react-nextjs-generator-icon.png",
