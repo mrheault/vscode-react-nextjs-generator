@@ -224,7 +224,21 @@ test('renders {fileName} component', () => {{
 
 ## 👨‍💻 Usage
 
-The extension analyzes CSS/SCSS files automatically, highlighting regions and providing information and fixes for stacking context and z-index issues.
+1. **Generate a React Component:**
+  - Right-click on a folder in the Explorer.
+  - Select `React/Next Generator > Generate React Component`.
+  - Follow the prompts to create a new React component with SCSS module and test file.
+
+2. **Generate a Next.js (Page, Loading, Layout, Error) file:**
+  - Right-click on a folder in the Explorer.
+  - Select `React/Next Generator > Generate Next.js {type} File`.
+  - Choose the desired file type (e.g., `Page`, `Loading`, `Layout`, `Error`).
+
+3. **Use Snippets:**
+  - Open a JavaScript or TypeScript file.
+  - Type the snippet prefix (e.g., `rimr`, `rfc`, `nxpg`) and select the desired snippet from the suggestions.
+
+
 
 ## 🤝 Contributing
 
