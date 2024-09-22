@@ -24,7 +24,7 @@ _Explorer Context Menu_
 | `rimr`           | JavaScript/TypeScript: import react                              |
 | `rfc`            | JavaScript/TypeScript: React functional component                |
 | `rfce`           | JavaScript/TypeScript: React functional component with useEffect |
-| `rsc`            | JavaScript/TypeScript: React functional component with useState  |
+| `rfcs`            | JavaScript/TypeScript: React functional component with useState  |
 | `rctx`           | JavaScript/TypeScript: React context with provider and hook      |
 | `nxpg`           | NextJS page file                                                 |
 | `nxlayout`       | NextJS layout                                                    |

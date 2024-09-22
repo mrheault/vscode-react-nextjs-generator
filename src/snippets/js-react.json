@@ -42,8 +42,8 @@
     ],
     "description": "JavaScript: React functional component with useEffect"
   },
-  "rsc": {
-    "prefix": "rsc",
+  "rfcs": {
+    "prefix": "rfcs",
     "body": [
       "import React, { useState } from 'react';",
       "",
