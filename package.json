@@ -4,6 +4,7 @@
   "description": "Easily create React components with Next.js structure and Next.js pages",
   "author": "Mike Rheault",
   "publisher": "mikerheault",
+  "icon": "images/react-nextjs-generator-icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/mrheault/vscode-react-nextjs-generator"
@@ -47,16 +48,32 @@
         "path": "./src/snippets/ts-react.json"
       },
       {
+        "language": "typescriptreact",
+        "path": "./src/snippets/ts-next.json"
+      },
+      {
         "language": "typescript",
         "path": "./src/snippets/ts-next.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./src/snippets/ts-react.json"
       },
       {
         "language": "javascriptreact",
         "path": "./src/snippets/js-react.json"
       },
       {
+        "language": "javascriptreact",
+        "path": "./src/snippets/js-next.json"
+      },
+      {
         "language": "javascript",
         "path": "./src/snippets/js-next.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./src/snippets/js-react.json"
       }
     ],
     "commands": [

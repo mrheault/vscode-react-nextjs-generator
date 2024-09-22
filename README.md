@@ -12,9 +12,27 @@ A VSCode extension to effortlessly generate React and Next.js files with customi
   - Layout
 - Customizable templates
 - Integration with VSCode commands
+- Snippets for React/Next components
 
 ![Context menu](https://raw.githubusercontent.com/mrheault/vscode-react-nextjs-generator/refs/heads/main/images/explorer-context-menu.jpg)
 _Explorer Context Menu_
+
+## 🔧 Snippets
+
+| Prefix           | Description                                                      |
+| ---------------- | ---------------------------------------------------------------- |
+| `rimr`           | JavaScript/TypeScript: import react                              |
+| `rfc`            | JavaScript/TypeScript: React functional component                |
+| `rfce`           | JavaScript/TypeScript: React functional component with useEffect |
+| `rsc`            | JavaScript/TypeScript: React functional component with useState  |
+| `rctx`           | JavaScript/TypeScript: React context with provider and hook      |
+| `nxpg`           | NextJS page file                                                 |
+| `nxlayout`       | NextJS layout                                                    |
+| `nxerror`        | NextJS error                                                     |
+| `nxloading`      | NextJS loading                                                   |
+| `nxcomponent`    | React component                                                  |
+| `nxcomponentcss` | React component CSS module                                       |
+| `nxtest`         | React component test                                             |
 
 ## 🛠️ Installation
 
