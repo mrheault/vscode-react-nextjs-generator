@@ -34,7 +34,11 @@ export class CreateReactComponent {
 
     const input = await vscode.window.showInputBox({
       prompt: "Confirm/Edit the file path and name",
-      value: initialDirPath,
+      value: ">" + initialDirPath,
+      valueSelection: [
+        (">" + initialDirPath).length,
+        (">" + initialDirPath).length,
+      ],
     });
 
     if (!input) {
