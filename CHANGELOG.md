@@ -1,6 +1,6 @@
 # Change Log
 
-## [v1.0.2] 08/02/2025
+## [v1.0.2] 08/03/2025
 
 - NPM package bumps
 - test coverage
