@@ -1,5 +1,9 @@
 # Change Log
 
+## [v1.0.2] 08/02/2025
+
+- NPM package bumps
+
 ## [v1.0.1] 9/22/2024
 
 - fix typo
