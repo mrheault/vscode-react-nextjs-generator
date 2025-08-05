@@ -1,0 +1,201 @@
+# VS Code Extension Development Rules
+
+## Project Overview
+
+This is a VS Code extension for generating React and Next.js files with customizable templates and snippets. The extension helps developers quickly scaffold React components, Next.js pages, layouts, error boundaries, and loading components with proper file structure and boilerplate code.
+
+## Code Style & Standards
+
+### TypeScript
+
+- Use strict TypeScript configuration
+- Prefer explicit types over `any`
+- Use interfaces for object shapes
+- Use enums for constants
+- Use readonly properties where appropriate
+- Use optional chaining and nullish coalescing
+- Prefer const assertions for literal types
+
+### Naming Conventions
+
+- Use PascalCase for classes, interfaces, and types
+- Use camelCase for variables, functions, and methods
+- Use UPPER_SNAKE_CASE for constants
+- Use descriptive names that explain intent
+- Prefix private methods with underscore if needed
+
+### File Organization
+
+- Keep files focused on single responsibility
+- Use barrel exports (index.ts) for clean imports
+- Group related functionality in directories
+- Separate concerns: commands, helpers, snippets, templates
+
+### VS Code Extension Patterns
+
+- Use the VS Code extension API properly
+- Implement proper disposal patterns for resources
+- Use event-driven architecture where appropriate
+- Follow VS Code's command and provider patterns
+- Use proper error handling and logging
+
+## Architecture Guidelines
+
+### Commands
+
+- Keep commands focused and simple
+- Use proper argument validation
+- Provide meaningful error messages
+- Follow VS Code command patterns
+- Handle file system operations safely
+- Validate file paths and URIs
+
+### File Generation
+
+- Create consistent file structures
+- Use template-based generation
+- Support both JavaScript and TypeScript
+- Generate associated files (CSS modules, tests)
+- Handle file naming conflicts gracefully
+- Provide customizable templates
+
+### Snippets
+
+- Create reusable code snippets
+- Use descriptive prefixes
+- Support multiple file types
+- Include proper imports and exports
+- Follow React and Next.js best practices
+- Provide both basic and advanced snippets
+
+### Helpers
+
+- Create pure functions where possible
+- Use proper error handling
+- Add JSDoc comments for complex functions
+- Keep helper functions small and focused
+- Handle file system operations safely
+
+## Testing
+
+- Write unit tests for all public functions
+- Test edge cases and error conditions
+- Use descriptive test names
+- Mock VS Code API calls in tests
+- Test both success and failure scenarios
+- Test file generation with different templates
+
+## Performance
+
+- Cache expensive operations
+- Use debouncing for user interactions
+- Minimize file system operations
+- Use efficient template processing
+- Profile performance-critical code
+
+## Error Handling
+
+- Use try-catch blocks appropriately
+- Log errors with context
+- Provide user-friendly error messages
+- Handle VS Code API errors gracefully
+- Use proper error types
+- Handle file system errors
+
+## Documentation
+
+- Add JSDoc comments for public APIs
+- Document complex algorithms
+- Keep README up to date
+- Document configuration options
+- Add inline comments for complex logic
+- Document template variables and options
+
+## React & Next.js Specific
+
+- Follow React functional component patterns
+- Use proper TypeScript types for props
+- Support both JavaScript and TypeScript
+- Include proper imports and exports
+- Follow Next.js file naming conventions
+- Support App Router and Pages Router
+- Include proper metadata generation
+
+## Template Management
+
+- Use consistent template structure
+- Support template customization
+- Handle template variables properly
+- Provide sensible defaults
+- Support both light and dark themes
+- Include proper TypeScript types
+
+## Git & Version Control
+
+- Write descriptive commit messages
+- Use conventional commits format
+- Keep commits focused and atomic
+- Update CHANGELOG.md for user-facing changes
+- Tag releases appropriately
+
+## Extension Development Best Practices
+
+- Follow VS Code extension guidelines
+- Use proper activation events
+- Implement proper contribution points
+- Handle workspace and file changes
+- Provide meaningful user feedback
+- Support both light and dark themes
+- Test across different VS Code versions
+
+## Code Quality
+
+- Use ESLint for code quality
+- Use Prettier for formatting
+- Fix all linting errors
+- Use meaningful variable names
+- Avoid code duplication
+- Keep functions small and focused
+- Use early returns to reduce nesting
+
+## Security
+
+- Validate all user inputs
+- Sanitize file paths and URIs
+- Use proper file path handling
+- Avoid eval() and similar functions
+- Follow VS Code security guidelines
+- Validate template content
+
+## Accessibility
+
+- Provide keyboard navigation
+- Use semantic HTML where applicable
+- Ensure proper color contrast
+- Add ARIA labels where needed
+- Test with screen readers
+
+## Internationalization
+
+- Use VS Code's localization system
+- Externalize user-facing strings
+- Support multiple languages
+- Use proper date/time formatting
+- Consider cultural differences
+
+## Performance Monitoring
+
+- Monitor extension activation time
+- Track memory usage
+- Profile expensive operations
+- Use VS Code's built-in profiling tools
+- Optimize based on real usage data
+
+## File System Operations
+
+- Handle file creation safely
+- Validate file paths before operations
+- Provide proper error messages for file conflicts
+- Support workspace-relative paths
+- Handle different file systems gracefully
+- Backup existing files when necessary
